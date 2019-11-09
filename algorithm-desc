@@ -1,0 +1,22 @@
+#### How does this scheduler work?
+
+1. Input Activity-based tasks and Independent Tasks, we have to let the program know what tasks is each activity composed of, as we seek to execute activity by activty and we will multitask by doing an independent task while doing an activity-based task. 
+ 1. Eg. While drinking coffee(activity-based task) multitask by calling mom(independent task)
+
+2. When the data is input, it generates a table which shows the fed data
+
+3. We should give a value to *givenTime* variable, which is the total available time we have in hande
+ 
+4. The program creates a list of total time of each activity
+
+5. The program considers the toal available time we have and finds the best combination of activities we can accomplish by taking the sum of their time that will use most of available time.
+
+6. After getting the activities that can make most out of the available time, it *prioritizes* the actvity in descending order of their total time. That way we execute activity from the list which takes the max time first and then next max... and so on until all are sorted in that manner.
+
+7. Now we have the activity execution order. The program looks at the activity and find the tasks that need to completed for the activity to be accomplished.
+ 1. It runs the tasks listed and if the task has a dependency then it will run its dependency first and then the task
+ 2. If dependency has a dependency then it will recursively run the dependency of dependency that needs to be executed.
+
+8. While executing tasks for the activity, if the task is multitaskable then the program finds the time of the task and finds the best combination of independent tasks that will make the most out of the multitaskable time while *prioritizing* in descending order of independent task time.
+
+9. The program then outputs the step-by-step instructions to follow and shows the updated table.
